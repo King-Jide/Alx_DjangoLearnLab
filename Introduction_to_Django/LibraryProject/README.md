@@ -1,5 +1,3 @@
-Here’s your polished and complete `README.md` file, Jideofor — formatted cleanly, with all the issues resolved and a few enhancements to make it shine ✨:
-
 ````markdown
 # 📚 LibraryProject
 

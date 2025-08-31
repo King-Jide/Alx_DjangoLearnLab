@@ -1,7 +1,6 @@
-````markdown
 # 📚 LibraryProject
 
-A beginner-friendly Django setup guide for creating and running a basic project called **LibraryProject**.
+A beginner-friendly guide to setting up and running a basic Django project called **LibraryProject**.
 
 ---
 
@@ -16,7 +15,7 @@ You’ll also explore the project’s default structure to understand the roles 
 ## 📑 Table of Contents
 
 - [Task Description](#-task-description)
-- [Virtual Environment Setup](#️-virtual-environment-setup)
+- [Virtual Environment Setup](#-virtual-environment-setup)
 - [Steps](#-steps)
 - [Explore the Project Structure](#-explore-the-project-structure)
 - [Repository Info](#-repository-info)
@@ -29,22 +28,22 @@ You’ll also explore the project’s default structure to understand the roles 
 
 Using a virtual environment keeps project dependencies isolated from your system Python.
 
-1. Create a virtual environment:
+1. **Create a virtual environment:**
    ```bash
    python3 -m venv django_env
    ```
 
-2. Activate the virtual environment:
+2. **Activate the virtual environment:**
    - On **Linux/Mac**:
      ```bash
      source django_env/bin/activate
      ```
    - On **Windows (PowerShell)**:
      ```powershell
-     django_env\Scripts\activate
+     .\django_env\Scripts\activate
      ```
 
-3. When finished working, deactivate with:
+3. **Deactivate when finished (all platforms):**
    ```bash
    deactivate
    ```
@@ -54,6 +53,7 @@ Using a virtual environment keeps project dependencies isolated from your system
 ## 🚀 Steps
 
 ### 1. Install Django
+
 With the virtual environment active, install Django:
 ```bash
 pip install django
@@ -65,12 +65,14 @@ django-admin --version
 ```
 
 ### 2. Create Your Django Project
+
 Run the following command:
 ```bash
 django-admin startproject LibraryProject
 ```
 
 ### 3. Run the Development Server
+
 - Navigate into your project directory:
   ```bash
   cd LibraryProject
@@ -80,7 +82,7 @@ django-admin startproject LibraryProject
   python manage.py runserver
   ```
 - Open a web browser and go to:  
-  👉 [http://127.0.0.1:8000/](http://127.0.0.1:8000/)  
+  [http://127.0.0.1:8000/](http://127.0.0.1:8000/)  
   to view the default Django welcome page 🎉
 
 ---
@@ -114,17 +116,19 @@ LibraryProject/
 
 ## 📂 Repository Info
 
-- **GitHub Repository**: `Alx_DjangoLearnLab`  
-- **Directory**: `Introduction_to_Django`
+- **GitHub Repository:** [`Alx_DjangoLearnLab`](https://github.com/King-Jide/Alx_DjangoLearnLab)
+- **Directory:** `Introduction_to_Django/LibraryProject`
 
 ---
 
 ## ✅ Next Steps
 
-- Create Django apps inside **LibraryProject**  
-- Explore **models**, **views**, and **templates**  
-- Add routing and dynamic content  
-- Connect to a database and build CRUD functionality  
+- Create Django apps inside **LibraryProject**
+- Explore **models**, **views**, and **templates**
+- Add routing and dynamic content
+- Connect to a database and build CRUD functionality
+
+For more in-depth guidance, see the [Django documentation](https://docs.djangoproject.com/en/stable/).
 
 ---
 

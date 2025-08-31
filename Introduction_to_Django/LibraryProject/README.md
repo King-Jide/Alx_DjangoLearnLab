@@ -7,8 +7,8 @@ A beginner-friendly Django setup guide for creating and running a basic project 
 
 ## 📝 Task Description
 
-Install Django and create a new Django project named **LibraryProject**.  
-This initial setup will serve as the foundation for developing Django applications.  
+Set up a Django project named **LibraryProject**.  
+This initial setup serves as the foundation for developing Django applications.  
 You’ll also explore the project’s default structure to understand the roles of various components.
 
 ---
@@ -16,19 +16,18 @@ You’ll also explore the project’s default structure to understand the roles 
 ## 📑 Table of Contents
 
 - [Task Description](#-task-description)
-- [Virtual Environment Setup](#-virtual-environment-setup)
+- [Virtual Environment Setup](#️-virtual-environment-setup)
 - [Steps](#-steps)
-- [Project Structure](#-explore-the-project-structure)
+- [Explore the Project Structure](#-explore-the-project-structure)
 - [Repository Info](#-repository-info)
 - [Next Steps](#-next-steps)
-- [License](#-license)
 - [Contributing](#-contributing)
 
 ---
 
 ## ⚙️ Virtual Environment Setup
 
-It’s best practice to use a virtual environment so dependencies don’t interfere with your system Python.
+Using a virtual environment keeps project dependencies isolated from your system Python.
 
 1. Create a virtual environment:
    ```bash
@@ -36,12 +35,11 @@ It’s best practice to use a virtual environment so dependencies don’t interf
    ```
 
 2. Activate the virtual environment:
-
-   * On **Linux/Mac**:
+   - On **Linux/Mac**:
      ```bash
      source django_env/bin/activate
      ```
-   * On **Windows (PowerShell)**:
+   - On **Windows (PowerShell)**:
      ```powershell
      django_env\Scripts\activate
      ```
@@ -56,46 +54,59 @@ It’s best practice to use a virtual environment so dependencies don’t interf
 ## 🚀 Steps
 
 ### 1. Install Django
-
 With the virtual environment active, install Django:
-
 ```bash
 pip install django
 ```
 
+Verify installation:
+```bash
+django-admin --version
+```
+
 ### 2. Create Your Django Project
-
 Run the following command:
-
 ```bash
 django-admin startproject LibraryProject
 ```
 
 ### 3. Run the Development Server
-
-* Navigate into your project directory:
+- Navigate into your project directory:
   ```bash
   cd LibraryProject
   ```
-* Start the development server:
+- Start the development server:
   ```bash
   python manage.py runserver
   ```
-* Open a web browser and go to:  
+- Open a web browser and go to:  
   👉 [http://127.0.0.1:8000/](http://127.0.0.1:8000/)  
-  to view the default Django welcome page.
+  to view the default Django welcome page 🎉
 
 ---
 
 ## 🧭 Explore the Project Structure
 
-Pay attention to the following files:
+When you create a new Django project, the folder structure looks like this:
+
+```
+LibraryProject/
+├── manage.py
+└── LibraryProject/
+    ├── __init__.py
+    ├── asgi.py
+    ├── settings.py
+    ├── urls.py
+    └── wsgi.py
+```
+
+### Key Files
 
 | File                  | Purpose                                                                 |
 |-----------------------|-------------------------------------------------------------------------|
 | `manage.py`           | Command-line utility to interact with this Django project               |
 | `settings.py`         | Configuration for the Django project                                    |
-| `urls.py`             | URL declarations; the “table of contents” of your Django-powered site   |
+| `urls.py`             | URL declarations; the “table of contents” of your site                  |
 | `__init__.py`         | Marks the directory as a Python package                                 |
 | `asgi.py` / `wsgi.py` | Entry points for ASGI/WSGI-compatible web servers                       |
 
@@ -103,19 +114,23 @@ Pay attention to the following files:
 
 ## 📂 Repository Info
 
-* **GitHub Repository**: `Alx_DjangoLearnLab`  
-* **Directory**: `Introduction_to_Django`
+- **GitHub Repository**: `Alx_DjangoLearnLab`  
+- **Directory**: `Introduction_to_Django`
 
 ---
 
 ## ✅ Next Steps
 
-- Create Django apps inside **LibraryProject**
-- Dive deeper into **models**, **views**, and **templates**
-- Add routing and dynamic content
-- Connect to a database and build CRUD functionality
+- Create Django apps inside **LibraryProject**  
+- Explore **models**, **views**, and **templates**  
+- Add routing and dynamic content  
+- Connect to a database and build CRUD functionality  
 
 ---
 
+## 🤝 Contributing
 
+Contributions are welcome!  
+If you’d like to improve this guide, feel free to fork the repository, make changes, and submit a pull request.
 
+---

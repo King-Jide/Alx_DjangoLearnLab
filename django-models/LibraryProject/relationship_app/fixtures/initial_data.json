@@ -1,0 +1,41 @@
+[
+  {
+    "model": "relationship_app.author",
+    "pk": 1,
+    "fields": {
+      "name": "Chinua Achebe"
+    }
+  },
+  {
+    "model": "relationship_app.book",
+    "pk": 1,
+    "fields": {
+      "title": "Things Fall Apart",
+      "author": 1
+    }
+  },
+  {
+    "model": "relationship_app.book",
+    "pk": 2,
+    "fields": {
+      "title": "Arrow of God",
+      "author": 1
+    }
+  },
+  {
+    "model": "relationship_app.library",
+    "pk": 1,
+    "fields": {
+      "name": "Central Library",
+      "books": [1, 2]
+    }
+  },
+  {
+    "model": "relationship_app.librarian",
+    "pk": 1,
+    "fields": {
+      "name": "John Doe",
+      "library": 1
+    }
+  }
+]

@@ -39,8 +39,12 @@ def books_in_central_library():
     Returns all book titles stored in the Central Library.
     """
     try:
+        #Query the Library witth the actual name "Central Library"
         library = Library.objects.get(name="Central Library")
-        books = Book.objects.filter(library=library)
+        
+        #Use the ManyToMany relation to fetch all the books
+        books = library.books.all()
+        # Return a clean list of book titles
         return [book.title for book in books]
 
     except Library.DoesNotExist:
@@ -53,8 +57,14 @@ def central_library_librarian():
     Returns the librarian in charge of the Central Library.
     """
     try:
+        # Get the Central Library instance
         library = Library.objects.get(name="Central Library")
-        librarian = Librarian.objects.get(library=library)
+
+        # Safely get the librarian, if one exists
+        librarian = getattr(library, 'librarian', None)
+        if librarian is None:
+            return "No librarian assigned to Central Library."      
+        
         return librarian.name
 
     except Library.DoesNotExist:

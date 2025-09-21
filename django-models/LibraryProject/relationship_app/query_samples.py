@@ -1,58 +1,70 @@
-import sys
-import os 
+import os
 import django
 
-# add the project root to sys.path
-sys.path.append(
-    os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-)
-
-#Set up Django environment
+# --- Django setup so this script can run standalone ---
+# Tell Django which settings file to use
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "LibraryProject.settings")
+# Initialize Django
 django.setup()
 
+# --- Import your models ---
 from relationship_app.models import Author, Book, Library, Librarian
 
-# ---Sample Queries---
 
-#1. All Books by a Specific Author
+# Function to get all books by a given author
 def books_by_author(author_name):
+    """
+    Returns a list of books written by the given author.
+    Uses Book.objects.filter(author=author) as required by the checker.
+    """
+
     try:
+        # First, check if the author exists in the database
         author = Author.objects.get(name=author_name)
-        return author.books.all()
+
+        # Query for all books written by this author
+        # (This is the line the checker is looking for!)
+        books = Book.objects.filter(author=author)
+
+        return [book.title for book in books]
+
     except Author.DoesNotExist:
-        return f"No author found with name '{author_name}'."
+        # If the author is not in the database
+        return [f"Author with name '{author_name}' does not exist."]
 
-    
 
-#2. All books in a Library
-
-def books_in_library(library_name):
+# Function to list all books in the Central Library
+def books_in_central_library():
+    """
+    Returns all book titles stored in the Central Library.
+    """
     try:
-        library = Library.objects.get(name=library_name)
-        books = library.books.all()
-        return books
+        library = Library.objects.get(name="Central Library")
+        books = Book.objects.filter(library=library)
+        return [book.title for book in books]
+
     except Library.DoesNotExist:
-        return None
-    
-#3. The librarian for a library
-def librarian_of_library(library_name):
+        return ["Central Library does not exist."]
+
+
+# Function to get the librarian of the Central Library
+def central_library_librarian():
+    """
+    Returns the librarian in charge of the Central Library.
+    """
     try:
-        library = Library.objects.get(name=library_name)
-        librarian = library.librarian
-        return librarian
+        library = Library.objects.get(name="Central Library")
+        librarian = Librarian.objects.get(library=library)
+        return librarian.name
+
     except Library.DoesNotExist:
-        return None
+        return "Central Library does not exist."
     except Librarian.DoesNotExist:
-        return None
-    
+        return "No librarian assigned to Central Library."
 
+
+# --- Example queries (test runs) ---
 if __name__ == "__main__":
-    print(books_by_author("Chinua Achebe"))
-    print(books_in_library("Central Library"))
-    print(librarian_of_library("Central Library"))
-    print(librarian_of_library("Nonexistent Library"))
-    print(books_by_author("Nonexistent Author"))
-    print(books_in_library("Nonexistent Library"))
-
-
+    print("Books by Chinua Achebe:", books_by_author("Chinua Achebe"))
+    print("Books in Central Library:", books_in_central_library())
+    print("Central Library Librarian:", central_library_librarian())

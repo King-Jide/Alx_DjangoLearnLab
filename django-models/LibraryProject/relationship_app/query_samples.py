@@ -34,13 +34,13 @@ def books_by_author(author_name):
 
 
 # Function to list all books in the Central Library
-def books_in_central_library():
+def books_in_central_library(library_name):
     """
     Returns all book titles stored in the Central Library.
     """
     try:
         #Query the Library witth the actual name "Central Library"
-        library = Library.objects.get(name="Central Library")
+        library = Library.objects.get(name=library_name)
         
         #Use the ManyToMany relation to fetch all the books
         books = library.books.all()
@@ -52,13 +52,13 @@ def books_in_central_library():
 
 
 # Function to get the librarian of the Central Library
-def central_library_librarian():
+def central_library_librarian(library_name):
     """
     Returns the librarian in charge of the Central Library.
     """
     try:
         # Get the Central Library instance
-        library = Library.objects.get(name="Central Library")
+        library = Library.objects.get(name=library_name)
 
         # Safely get the librarian, if one exists
         librarian = getattr(library, 'librarian', None)

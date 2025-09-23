@@ -61,7 +61,7 @@ def central_library_librarian(library_name):
         library = Library.objects.get(name=library_name)
 
         # Safely get the librarian, if one exists
-        librarian = getattr(library, 'librarian', None)
+        librarian = Librarian.objects.get(library=library)
         if librarian is None:
             return "No librarian assigned to Central Library."      
         

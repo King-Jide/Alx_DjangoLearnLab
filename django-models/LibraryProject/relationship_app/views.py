@@ -12,7 +12,7 @@ def list_books(request):
     Uses select_related('author) tio avoid N+1 query when accessing book.author
     """
     #QuerySet of all books; use select_related to fetch author in the same query
-    books = Book.object.all().select_related('author')
+    books = Book.object.all()
 
     #if you prefer plain text instead of template, uncomment the next block:
     #lines = [f"{b.title} by {b.author.name}" for b in books]

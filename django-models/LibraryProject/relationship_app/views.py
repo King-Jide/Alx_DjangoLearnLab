@@ -41,4 +41,3 @@ class LibraryDetailView(DetailView):
         """
         #Override get_queryset to prefetch related books to avoid N+1 queries
         return super().get_queryset().prefetch_related('books__author')
-    

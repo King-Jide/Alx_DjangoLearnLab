@@ -1,7 +1,8 @@
 from django.shortcuts import render, ger_objeect_or_404
 from django.http import HttpResponse
 from django.views.generic import DetailView
-from .models import Book, Library
+from .models import Book
+from .models import Library
 
 #-----------------------------------
 #Function-based view: list all books
@@ -40,3 +41,4 @@ class LibraryDetailView(DetailView):
         """
         #Override get_queryset to prefetch related books to avoid N+1 queries
         return super().get_queryset().prefetch_related('books__author')
+    
